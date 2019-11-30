@@ -11,7 +11,7 @@ function solve(...params) {
     let totalSeconds = Math.round((secondsPerKilometer * kilometers) + breaksTotalSeconds);
 
     let date = new Date(null);
-    date.setSeconds(totalSeconds); // specify value for SECONDS here
+    date.setSeconds(totalSeconds);
     let timeString = date.toISOString().substr(11, 8);
     console.log(timeString)
 }
