@@ -1,6 +1,6 @@
-function extract(text){
+function extract(text) {
 
-    let result = text.match(/\w+/mg).map(x=>x.toUpperCase()).join(", ");   
+    let result = text.match(/\w+/mg).map(x => x.toUpperCase()).join(", ");
 
     console.log(result)
 }
@@ -8,4 +8,4 @@ function extract(text){
 extract(`
     Hi, how are 
     you?`
-    );
+);
