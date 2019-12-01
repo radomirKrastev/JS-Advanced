@@ -13,7 +13,7 @@ function solve(...params) {
     let date = new Date(null);
     date.setSeconds(totalSeconds);
     let timeString = date.toISOString().substr(11, 8);
-    console.log(timeString)
+    console.log(timeString);
 }
 
-solve(4000, 0.6, 5)
+solve(4000, 0.6, 5);

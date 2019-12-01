@@ -12,16 +12,14 @@ function composeObjects(data) {
         foods.push(object);
     }
 
-    let result = "{ ";
-
     let resultArray = [];
 
     foods.forEach(element => {
         for (let [key, value] of Object.entries(element)) {
             resultArray.push(`${key}: ${value}`);
-          }    
+        }
     });
-    
+
 
     console.log(`{ ${resultArray.join(", ")} }`);
 }
