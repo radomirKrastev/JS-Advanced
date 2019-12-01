@@ -1,6 +1,5 @@
-"use strict";
-
 function gcd(a, b) {
+    "use strict";
     if (!b) {
         return a;
     }

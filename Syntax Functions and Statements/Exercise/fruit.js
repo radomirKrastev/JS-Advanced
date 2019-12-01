@@ -5,7 +5,7 @@ function calculateFruitCost(...params) {
     let cost = params[2];
     let price = kilograms * cost;
 
-    console.log(`I need $${price.toFixed(2)} to buy ${kilograms.toFixed(2)} kilograms ${fruit}.`)
+    console.log(`I need $${price.toFixed(2)} to buy ${kilograms.toFixed(2)} kilograms ${fruit}.`);
 }
 
-calculateFruitCost('orange', 2500, 1.8)
+calculateFruitCost('orange', 2500, 1.8);

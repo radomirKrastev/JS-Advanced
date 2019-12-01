@@ -16,4 +16,6 @@ function checkNumbers(x) {
     console.log(sum);
 }
 
+
+
 checkNumbers(2222222);
