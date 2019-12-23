@@ -12,6 +12,8 @@ function sumTownsIncome(data) {
 
         townsIncome[name] += income;
     }
+
+    console.log(JSON.stringify(townsIncome));
 }
 
 sumTownsIncome(['Sofia',
