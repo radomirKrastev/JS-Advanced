@@ -9,18 +9,15 @@ function printProductsLowestPrice(data) {
 
             productsSet.add(product);
 
-            if (!towns[townName]) {
-                let products = {};
-                products[product] = price;
-                towns[townName] = products;
-            } else {
-                towns[townName][product] = price;
+            if (!towns.hasOwnProperty(townName)) {
+                towns[townName] = {};
             }
+
+            towns[townName][product] = price;
         }
     }
 
     function printResult(towns, productsSet) {
-
         var townKeys = Object.getOwnPropertyNames(towns);
 
         for (let currentProduct of productsSet) {
@@ -49,11 +46,11 @@ function printProductsLowestPrice(data) {
     printResult(towns, products);
 }
 
- printProductsLowestPrice(['Sample Town | Sample Product | 1000',
- 'Sample Town | Orange | 2',
- 'Sample Town | Peach | 1',
- 'Sofia | Orange | 3',
- 'Sofia | Peach | 2',
- 'New York | Sample Product | 1000.1',
- 'New York | Burger | 10']
- );
+printProductsLowestPrice(['Sample Town | Sample Product | 1000',
+    'Sample Town | Orange | 2',
+    'Sample Town | Peach | 1',
+    'Sofia | Orange | 3',
+    'Sofia | Peach | 2',
+    'New York | Sample Product | 1000.1',
+    'New York | Burger | 10']
+);
