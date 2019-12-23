@@ -25,11 +25,11 @@ function formatJSONToHTML(jsonArray) {
     
     table += "</tr>";
 
-    for (i = 0; i < parsedJSON.length; i++){
+    for (let obj of parsedJSON){
         table += "\n";    
         let valuesLine = "";   
         valuesLine = "   <tr>" + keys
-        .map(x => parsedJSON[i][x])         
+        .map(x => obj[x])         
         .reduce((valuesLine, v) => {
             v = escapeHtml(v);
             valuesLine += `<td>${v}`;
@@ -42,7 +42,6 @@ function formatJSONToHTML(jsonArray) {
     }
 
     table += "\n</table>";
-
     console.log(table);
 }
 
