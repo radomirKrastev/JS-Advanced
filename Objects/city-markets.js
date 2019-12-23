@@ -24,7 +24,7 @@ function calculateProductsIncome(data) {
         let townNames = Object.getOwnPropertyNames(towns);
 
         for (let town of townNames) {
-            console.log(`Town ${town}`);
+            console.log(`Town - ${town}`);
             let productNames = Object.getOwnPropertyNames(towns[town]);
 
             for (let product of productNames) {
