@@ -1,4 +1,4 @@
-function formatJSONToHTMLTable(jsonArray) {
+function formatJSONToHTML(jsonArray) {
 
     function escapeHtml(unsafe) {
         let safe = unsafe
@@ -15,25 +15,25 @@ function formatJSONToHTMLTable(jsonArray) {
     let parsedJSON = JSON.parse(jsonArray);
     let keys = Object.getOwnPropertyNames(parsedJSON[0]);
 
-    let table = "";
-    table += "<table>\n" + "  <tr>" + keys 
-    .reduce((table, k) => {
-        table += `<th>${k}`;
-        table += "</th>";
-        return table;
-    }, table);
+    let html = "";
+    html += "<table>\n" + "  <tr>" + keys 
+    .reduce((html, k) => {
+        html += `<th>${k}`;
+        html += "</th>";
+        return html;
+    }, html);
     
-    table += "</tr>";
+    html += "</tr>";
 
     for(let obj of parsedJSON){
-        table += "\n";    
+        html += "\n";    
         let name = escapeHtml(obj[keys[0]]);
         let score = escapeHtml(obj[keys[1]]);
-        table += `   <tr><td>${name}</td><td>${score}</td></tr>`;
+        html += `   <tr><td>${name}</td><td>${score}</td></tr>`;
     }
 
     // for (i = 0; i < parsedJSON.length; i++){
-    //     table += "\n";    
+    //     html += "\n";    
     //     let valuesLine = "";   
     //     valuesLine = "   <tr>" + Object
     //     .getOwnPropertyNames(parsedJSON[i])
@@ -46,13 +46,13 @@ function formatJSONToHTMLTable(jsonArray) {
     //     }, valuesLine);
 
     //     valuesLine += "</tr>";
-    //     table += valuesLine;
+    //     html += valuesLine;
     // }
 
-    table += "\n</table>";
+    html += "\n</table>";
 
-    console.log(table);
+    console.log(html);
 }
 
-formatJSONToHTMLTable(['[{"name":"Pesho","score":479},{"name":"Gosho","score":205}]']);
-formatJSONToHTMLTable(['[{"name":"Pesho & Kiro","score":479},{"name":"Gosho, Maria & Viki","score":205}]']);
+formatJSONToHTML(['[{"name":"Pesho","score":479},{"name":"Gosho","score":205}]']);
+formatJSONToHTML(['[{"name":"Pesho & Kiro","score":479},{"name":"Gosho, Maria & Viki","score":205}]']);
