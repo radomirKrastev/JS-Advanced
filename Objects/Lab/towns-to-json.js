@@ -22,10 +22,6 @@ function formatDataToJson(arrOfStrings) {
         return obj;
     }, {}));
 
-    objects.forEach(element => {
-        
-    });
-
     console.log(JSON.stringify(objects));
 }
 
