@@ -23,7 +23,7 @@ function registerProducts(input) {
             console.log(currentLetter);
         }
 
-        console.log(`  ${product.name} : ${product.price}`);
+        console.log(`  ${product.name}: ${product.price}`);
     }    
 }
 
