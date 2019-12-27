@@ -29,7 +29,6 @@ function printUniqueSequences(data) {
     for(let sequence of uniqueSequences.sort(function(a, b){
         return sortAscending(a.length, b.length);
     })){
-        console.log(JSON.stringify(uniqueSequences));
         console.log("[" + sequence.join(", ") + "]");
     }
 }
