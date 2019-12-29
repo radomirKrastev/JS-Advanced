@@ -1,5 +1,5 @@
 										# Lab: Arrays and Matrices #
-## 1.	Sum First Last ##
+## 1. Sum First Last ##
 Write a function that calculates and prints the sum of the first and the last elements in an array.
 The input comes as array of string elements holding numbers.
 The output is the return value of your function.
@@ -12,7 +12,7 @@ Input	Output		Input	Output
 | ------------------ |:----:   | -----:		 | ------------: |
 | ['20', '30', '40'] | 60 	   | ['5', '10'] | col 3 is      |
 
-##H2 2.	Even Position Element
+## 2. Even Position Element ##
 Write a function that finds the elements at even positions in an array.
 The input comes as array of string elements.
 The output is the return value of your function. Collect all elements in a string, separated by space.
