@@ -12,7 +12,7 @@ function play(positions) {
     }
 
     function checkIfPlayerWonByRowsOrDiagonal(field, tag) {
-        let wonByRows = field.some(x => x.every((value) => value === tag));
+        let wonByRows = field.some((x) => x.every((value) => value === tag));
         let wonByFirstDiagonal = field.every((row, i) => row[i] === tag);
         let wonBySecondDiagonal = field.every((row, i) => row[row.length - 1 - i] === tag);
 
@@ -24,7 +24,7 @@ function play(positions) {
             result += row.join("\t") + "\r\n";
             return result;
         }, "");
-        
+
         return message;
     }
 
@@ -37,8 +37,8 @@ function play(positions) {
         let counter = 0;
 
         for (let i = 0; i < positions.length; i += 1) {            
-            let row = +positions[i].split(" ")[0];
-            let col = +positions[i].split(" ")[1];
+            let row = Number(positions[i].split(" ")[0]);
+            let col = Number(positions[i].split(" ")[1]);
 
             if (validatePosition(row, col, field)) {
                 if (field[row][col] !== false) {
