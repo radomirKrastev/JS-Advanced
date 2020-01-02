@@ -4,7 +4,7 @@ function fillSpiralMatrix(rows, cols) {
         let arr = new Array(cols).fill(0);
         matrix[i] = arr;
     }
-    
+
     function fillRight(row, col, value) {
         matrix[row][col + 1] = value + 1;
         return matrix;
@@ -33,24 +33,24 @@ function fillSpiralMatrix(rows, cols) {
         while (col + 1 < matrix[row].length && matrix[row][col + 1] === 0) {
             matrix = fillRight(row, col, value++);
             col++;
-        } 
+        }
 
         while (row + 1 < rows && matrix[row + 1][col] === 0) {
             matrix = fillDown(row, col, value++);
             row++;
-        } 
+        }
 
         while (col - 1 >= 0 && matrix[row][col - 1] === 0) {
             matrix = fillLeft(row, col, value++);
             col--;
-        } 
-        
+        }
+
         while (row - 1 >= 0 && matrix[row - 1][col] === 0) {
             matrix = fillUp(row, col, value++);
             row--;
         }
     }
-         
+
     return matrix.reduce(function(result, row){
         result += row.join(" ") + "\r\n";
         return result;
