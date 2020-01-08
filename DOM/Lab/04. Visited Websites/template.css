@@ -7,6 +7,10 @@ html, body {
     color: white;
 }
 
+* {
+    pointer-events: none;
+}
+
 #page1 { background: #2d2d2d; }
 
 .wrapper {
@@ -45,6 +49,10 @@ p {
 [class^="link-"] {
     display: inline-block;
     margin: 2em
+}
+
+[class^="link-"] a {
+    pointer-events: all;
 }
 
 /* linkone */
