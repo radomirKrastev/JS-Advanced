@@ -1,5 +1,4 @@
 function solve() {
-
   let rightAnswers = ["onclick", "JSON.stringify()", "A programming API for HTML and XML documents"];
   let points = 0;
   let sections = [...document.getElementsByTagName("section")];
