@@ -1,33 +1,29 @@
 function solve() {
-   // let totalPrice = 0;
-   // let set = new Set();
+   let totalPrice = {"price": Number(0)};
+   let set = new Set();
+   let addButtons = [...document.querySelectorAll(".add-product")];
+   let checkout = document.querySelector(".checkout");     
 
-    function addProductsToCart(x) {
-      console.log(x);
-      console.log(x.target);
-      //let product = x.target.parentElement.parentElement;
-      //let name = product.querySelector("product-title").textContent;
-      //let price = Number(product.querySelector("product-line-price").textContent);
+   let addProductsToCart = function (e, totalPrice, set) {
+      let product = e.parentElement.parentElement;
+      let name = product.querySelector(".product-title").textContent;
+      let price = Number(product.querySelector(".product-line-price").textContent);
 
-   //    console.log(name);
-   //    console.log(price);
+      set.add(name);
+      totalPrice.price += price;
 
-   //    set.add(name);
-   //    totalPrice += price;
-   //    console.log(name);
-   //    console.log(price);
+      let messageArea = product.parentElement.querySelector("textarea");
+      messageArea.textContent += `Added ${name} for ${price.toFixed(2)} to the cart.\n`;
+   };
 
-   //    let messageArea = product.parentElement;
-   //    messageArea.textContent = `Added ${name} for ${money} to the cart.\n`;
-   //    console.log("-----------------------");
-   }
+   let calculateTotalPrice = function (e, totalPrice, set, addButtons) {
+      let messageArea = e.parentElement.querySelector("textarea");
+      messageArea.textContent += `You bought ${[...set].join(", ")} for ${totalPrice.price.toFixed(2)}.`;
 
-   // console.log(document.querySelectorAll(".add-product")[0]);
-   // console.log(document.querySelectorAll(".add-product")[0].closest(".product-line-price"));
-   // console.log([...document.querySelectorAll(".add-product")]);
-
-   let buttons = [...document.querySelectorAll(".add-product")].forEach(x => x.addEventListener("click", addProductsToCart(x)));
-   //buttons.forEach(x => x.addEventListener("click", addProductsToCart(x)));
-
-
-}
+      e.disabled = true;
+      addButtons.map(x => x.disabled = true);
+   };
+   
+   checkout.addEventListener("click", calculateTotalPrice.bind(null, checkout, totalPrice, set, addButtons));
+   addButtons.forEach(x => x.addEventListener("click", addProductsToCart.bind(null, x, totalPrice, set)));    
+ }
