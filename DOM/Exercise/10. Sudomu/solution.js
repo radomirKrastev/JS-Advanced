@@ -2,12 +2,11 @@ function solve() {
     let rows = [...document.querySelectorAll("tbody tr")];
     let rowCells = rows.map(x => [...x.querySelectorAll("td")]);
     let quickCheck = document.querySelectorAll("button")[0];
+    let clearButton = document.querySelectorAll("button")[1];
 
     let checkForUniqueValuesInLimits = function (arr) {
-        arr.filter(x => x >= 1 && x <= 3);
-
         for (let row of arr) {
-            if (new Set(row.slice().filter(x => x >= 1 && x <= 3)).size !== arr.length){
+            if (new Set(row.slice().filter(x => x >= 1 && x <= 3 && x % 1 === 0)).size !== arr.length){
                 return false;
             }            
         }
@@ -15,48 +14,39 @@ function solve() {
         return true;
     };
 
-    let check = function () {
-        let rowsAreValid = true;
-        //check row values
-
+    let checkResult = function () {
         let filledRows = rowCells
         .map(r => r.map(c => c = Number(c.querySelector("input").value)));
-        //.filter(x => x >= 1 && x <= 3);
 
-        // for (let row of rowCells) {
-        //     // if (row.map(x => Number(x.textContent).reudce((a, b) => a + b, 0)) === 6 
-        //     // && (new Set(row.map(Number(x.textContent)).filter(x => x >= 1 && x <= 3))).size !== array.length)
-        //     console.log(row);
-
-        //     if ((new Set(row
-        //         .map(r => Number(r.querySelector("input").value))
-        //         .filter(x => x >= 1 && x <= 3))).size !== row.length) {
-        //         rowsAreValid = false;
-        //         return;
-        //     }
-        // }
-
-        console.log(rowsAreValid);
-
-        let cols = rowCells.reduce(function (result, r, i) {
+        let cols = rowCells.reduce(function (result, r) {
+            let i = 0;
             for (let cell of r) {
-                console.log(Number(cell.querySelector("input").value));
-                result[i].push(Number(cell.querySelector("input").value));
+                result[i++].push(Number(cell.querySelector("input").value));
             }
 
             return result;
         }, [[],[],[]]);
 
-        console.log(cols);
+        let output = document.querySelector("div[id='check'] p");
+        let table = document.querySelector("table");
 
         if (checkForUniqueValuesInLimits(filledRows) && checkForUniqueValuesInLimits(cols)){
-            let output = document.querySelector("div[id='check']");
+            table.style.border = "2px solid green";
             output.textContent = "You solve it! Congratulations!";
-            console.log("EVERYTHING IS PERFECT, BRO, NO WORRIES");
+            output.style.color = "green";
         } else {
-            console.log("YOU FUCKED UP SOMETHING!!!");
+            table.style.border = "2px solid red";
+            output.textContent = "NOP! You are not done yet...";
+            output.style.color = "red";
         }
     };
 
-    quickCheck.addEventListener("click", check);
+    let clear = function() {
+        location.reload();
+    };
+
+    quickCheck.addEventListener("click", checkResult);
+    clearButton.addEventListener("click", clear);
 }
+
+//this solution gives 84/100 in judge. No idea why :/
