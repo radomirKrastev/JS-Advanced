@@ -1,6 +1,5 @@
 function create(words) {
    let handlerShowText = function(paragraph) {
-      console.log(paragraph);
       paragraph.style.display = 'block';
    };
 
