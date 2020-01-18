@@ -12,7 +12,11 @@ class Person {
     }
 
     toString() {
-        return `${firstName} ${lastName} (age: ${age}, email: ${email})`;
+        return `${this.firstName} ${this.lastName} (age: ${this.age}, email: ${this.email})`;
     }
 }
+
+// let person = new Person('Anna', 'Simpson', 22, 'anna@yahoo.com');
+// console.log(person.toString());
+
 
