@@ -9,9 +9,7 @@ function ticketManager(ticketData, sortCriteria) {
             this.status = status;
         }
     }
-
-    //let a = ticketData.map(x => x.split("|"));
-
+    
     let tickets = ticketData.map(x => x.split("|")).reduce(function(result, data ){
         let destination = data[0];
         let price = Number(data[1]);
