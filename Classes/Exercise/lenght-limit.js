@@ -18,7 +18,7 @@ class Stringer{
     }
 
     toString() {
-        if (this.innerString.length > this.innerLength){
+        if (this.innerString.length > this.innerLength) {
             return this.innerString.substring(0, this.innerLength) + "...";
         }
 

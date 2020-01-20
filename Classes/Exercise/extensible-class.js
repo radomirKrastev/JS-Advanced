@@ -21,7 +21,6 @@ const Extensible = (function(){
 
 // let obj1 = new Extensible();
 // let obj2 = new Extensible();
-
 // obj1.extend({
 //     extensionMethod: function () {},
 //     extensionProperty: 'someString'
