@@ -15,7 +15,7 @@
         "--timeout",
         "999999",
         "--colors",
-        "${workspaceFolder}/coverage"
+        "${workspaceFolder}/coverage/${fileBasenameNoExtension}.js"
       ],
       "internalConsoleOptions": "openOnSessionStart",
       "skipFiles": ["<node_internals>/**"]
@@ -25,7 +25,7 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\sum-of-numbers.js"
+      "program": "${workspaceFolder}\\index.js"
     }
   ]
 }
