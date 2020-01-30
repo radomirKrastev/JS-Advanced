@@ -1,12 +1,7 @@
 function solve() {
-  let inputArr = document.querySelector("#array").value;
-  let arr = JSON.parse(inputArr);
-  let key = arr.shift();
-
-  let messagePattern = new RegExp(
-    `(?<=^| )${key}[\\s]+([!%$#A-Z]{8,})(?= |\.|,|$)`,
-    "gim"
-  );
+  let getElement = function(element) {
+    return document.querySelector(element);
+  };
 
   let replaceSymbols = function(word) {
     word = word.replace(/!/g, 1);
@@ -16,16 +11,29 @@ function solve() {
     return word.toLowerCase();
   };
 
-  let result = document.querySelector("#result");
+  let inputArr = getElement("#array").value;
+  let arr = JSON.parse(inputArr);
+  let key = arr.shift();
 
-  arr.forEach((element) => {
-    while ((word = messagePattern.exec(element))) {
-      if (word[1].toUpperCase() === word[1]) {
-        element = element.replace(word[1], replaceSymbols(word[1]));
+  let messagePattern = new RegExp(
+    `(?<=^| )${key}[\\s]+([!%$#A-Z]{8,})(?= |\.|,|$)`,
+    "gim"
+  );
+
+  let transformText = function(result) {
+    arr.forEach((element) => {
+      while ((word = messagePattern.exec(element))) {
+        if (word[1].toUpperCase() === word[1]) {
+          element = element.replace(word[1], replaceSymbols(word[1]));
+        }
       }
-    }
-    const p = document.createElement("p");
-    p.innerHTML = element;
-    result.appendChild(p);
-  });
+
+      const p = document.createElement("p");
+      p.innerHTML = element;
+      result.appendChild(p);
+    });
+  };
+
+  let result = getElement("#result");
+  transformText(result);
 }
