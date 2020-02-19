@@ -83,7 +83,6 @@ class Computer {
 // computer.installAProgram("PowerPoint", 12288);
 // computer.uninstallAProgram("Word");
 // computer.installAProgram("Solitare", 1500);
-
 // computer.openAProgram("Excel");
 // computer.openAProgram("Solitare");
 
